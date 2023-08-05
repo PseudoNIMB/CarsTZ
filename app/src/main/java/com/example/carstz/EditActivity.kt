@@ -3,7 +3,6 @@ package com.example.carstz
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import com.example.carstz.databinding.ActivityEditBinding
 
 class EditActivity : AppCompatActivity() {
@@ -28,11 +27,11 @@ class EditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val db = MainDB.getDB(this)
+
         initButtons()
     }
 
-    private fun initButtons() = with(binding){
+    fun initButtons() = with(binding){
         bNext.setOnClickListener{
             indexImage++
             if(indexImage > imageIdList.size - 1) indexImage = 0
@@ -40,17 +39,27 @@ class EditActivity : AppCompatActivity() {
             imageView.setImageResource(imageId)
         }
         bDone.setOnClickListener{
-            val car = Car(imageId,edTitle.text.toString(),edDesc.text.toString())
+            val db = MainDB.getDB(this@EditActivity)
+            val item = Item(null,
+                edTitle.text.toString(),
+                edDesc.text.toString(),
+                edEngine.text.toString(),
+                edTrans.text.toString(),
+                edPrice.text.toString()
+            )
+            val car = Car(imageId,
+                edTitle.text.toString(),
+                edDesc.text.toString(),
+                edEngine.text.toString(),
+                edTrans.text.toString(),
+                edPrice.text.toString()
+                )
+            Thread{
+                db.getDao().insertItem(item)
+            }.start()
             val editIntent = Intent().apply{
                 putExtra("car", car)
             }
-            val item = Item(null,
-            edTitle.text.toString(),
-            edDesc.text.toString(),
-            edEngine.text.toString(),
-            edTrans.text.toString(),
-            edPrice.text.toString()
-            )
             setResult(RESULT_OK, editIntent)
             finish()
         }
