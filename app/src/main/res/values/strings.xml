@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">CarsTZ</string>
     <string name="next_image">Next image</string>
-    <string name="description">Description</string>
+    <string name="description">Model</string>
     <string name="done">Done</string>
-    <string name="title">Title</string>
+    <string name="title">Brand</string>
     <string name="todo">TODO</string>
+    <string name="engine">Engine</string>
+    <string name="transmission">Transmission</string>
+    <string name="price">Price</string>
 </resources>

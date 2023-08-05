@@ -3,6 +3,7 @@ package com.example.carstz
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import com.example.carstz.databinding.ActivityEditBinding
 
 class EditActivity : AppCompatActivity() {
@@ -27,6 +28,7 @@ class EditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val db = MainDB.getDB(this)
         initButtons()
     }
 
@@ -42,6 +44,13 @@ class EditActivity : AppCompatActivity() {
             val editIntent = Intent().apply{
                 putExtra("car", car)
             }
+            val item = Item(null,
+            edTitle.text.toString(),
+            edDesc.text.toString(),
+            edEngine.text.toString(),
+            edTrans.text.toString(),
+            edPrice.text.toString()
+            )
             setResult(RESULT_OK, editIntent)
             finish()
         }
