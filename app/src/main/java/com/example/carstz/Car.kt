@@ -1,3 +1,5 @@
 package com.example.carstz
 
-data class Car(val imageId: Int, val title: String, val desc: String)
+import java.io.Serializable
+
+data class Car(val imageId: Int, val title: String, val desc: String): Serializable
