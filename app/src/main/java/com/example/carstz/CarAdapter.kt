@@ -28,4 +28,9 @@ class CarAdapter : RecyclerView.Adapter<CarAdapter.CarHolder>() {
     override fun onBindViewHolder(holder: CarHolder, position: Int) {
         holder.bind(carList[position])
     }
+
+    fun addCar(car: Car){
+        carList.add(car)
+        notifyDataSetChanged()
+    }
 }
