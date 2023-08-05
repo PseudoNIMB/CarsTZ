@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         rcView.layoutManager = GridLayoutManager(this@MainActivity, 3)
         rcView.adapter = adapter
         buttonAdd.setOnClickListener {
-
+            editLauncher?.launch(Intent(this@MainActivity, EditActivity::class.java))
         }
     }
 }

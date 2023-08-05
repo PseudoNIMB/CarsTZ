@@ -1,5 +1,6 @@
 package com.example.carstz
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.carstz.databinding.ActivityEditBinding
@@ -25,6 +26,7 @@ class EditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditBinding.inflate(layoutInflater)
+        binding.imageView.setImageResource(R.drawable.audia4)
         setContentView(binding.root)
     }
 
@@ -32,7 +34,16 @@ class EditActivity : AppCompatActivity() {
         bNext.setOnClickListener{
             indexImage++
             if(indexImage > imageIdList.size - 1) indexImage = 0
-
+            imageId = imageIdList[indexImage]
+            imageView.setImageResource(imageId)
+        }
+        bDone.setOnClickListener{
+            val car = Car(imageId,edTitle.text.toString(),edDesc.text.toString())
+            val editIntent = Intent().apply{
+                putExtra("car", car)
+            }
+            setResult(RESULT_OK, editIntent)
+            finish()
         }
     }
 }
