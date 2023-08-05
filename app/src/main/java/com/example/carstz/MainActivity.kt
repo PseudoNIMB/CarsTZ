@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.carstz.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     private val adapter = CarAdapter()
     private var editLauncher: ActivityResultLauncher<Intent>? = null
 
@@ -18,7 +18,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         init()
-        editLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+        editLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
             if(it.resultCode == RESULT_OK){
                 adapter.addCar(it.data?.getSerializableExtra("car") as Car)
             }

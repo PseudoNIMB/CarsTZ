@@ -8,7 +8,7 @@ import com.example.carstz.databinding.ActivityEditBinding
 class EditActivity : AppCompatActivity() {
     lateinit var binding: ActivityEditBinding
     private var indexImage = 0
-    private var imageId = 0
+    private var imageId = R.drawable.audia4
     private val imageIdList = listOf(
         R.drawable.audia4,
         R.drawable.audia6,
@@ -26,8 +26,8 @@ class EditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditBinding.inflate(layoutInflater)
-        binding.imageView.setImageResource(R.drawable.audia4)
         setContentView(binding.root)
+        initButtons()
     }
 
     private fun initButtons() = with(binding){
