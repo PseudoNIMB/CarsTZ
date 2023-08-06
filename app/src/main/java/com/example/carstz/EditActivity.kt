@@ -48,20 +48,15 @@ class EditActivity : AppCompatActivity() {
                 edDesc.text.toString(),
                 edEngine.text.toString(),
                 edTrans.text.toString(),
-                edPrice.text.toString()
+                edPrice.text.toString(),
+                imageId
             )
-            val car = Item(imageId,
-                edTitle.text.toString(),
-                edDesc.text.toString(),
-                edEngine.text.toString(),
-                edTrans.text.toString(),
-                edPrice.text.toString()
-                )
+
             Thread{
                 db.getDao().insertItem(item)
             }.start()
             val editIntent = Intent().apply{
-                putExtra("car", car)
+                putExtra("car", item)
             }
             setResult(RESULT_OK, editIntent)
             finish()

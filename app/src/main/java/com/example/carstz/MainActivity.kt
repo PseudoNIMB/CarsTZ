@@ -37,10 +37,18 @@ class MainActivity : AppCompatActivity() {
 
 
         val db = MainDB.getDB(this@MainActivity)
-        db.getDao().getAllItems().asLiveData().observe(this@MainActivity){list ->
-            list.forEach{ _ ->
+        db.getDao().getAllItems().asLiveData().observe(this@MainActivity){ it ->
+
+            it.forEach{
                 adapter.addCar(car = Item
-                    (id = 0, brand = "", model = "", engine = "", transmission = "", price = ""))
+                    (
+                    id = it.id,
+                    brand = it.brand,
+                    model = it.model,
+                    engine = it.engine,
+                    transmission = it.transmission,
+                    price = it.price,
+                    imageId = it.imageId))
                 adapter
             }
         }

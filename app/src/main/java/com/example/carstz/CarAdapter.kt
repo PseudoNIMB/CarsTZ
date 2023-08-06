@@ -14,7 +14,8 @@ class CarAdapter : RecyclerView.Adapter<CarAdapter.CarHolder>() {
 
         fun bind(car: Item) = with(binding){
 
-            //im.setImageResource(imageId)
+
+            im.setImageResource(car.imageId)
             tvTitle.text = car.brand + " " + car.model + " " + car.engine + " " + car.transmission + " " + car.price
         }
     }
@@ -41,3 +42,5 @@ class CarAdapter : RecyclerView.Adapter<CarAdapter.CarHolder>() {
         notifyDataSetChanged()
     }
 }
+
+
