@@ -5,10 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.carstz.data.dao.DAO
-import com.example.carstz.data.entity.Item
+import com.example.carstz.data.entity.Car
 
 
-@Database (entities = [Item::class], version = 1, exportSchema = true)
+@Database (entities = [Car::class], version = 1, exportSchema = true)
 abstract class MainDB : RoomDatabase() {
     abstract fun getDao(): DAO
 

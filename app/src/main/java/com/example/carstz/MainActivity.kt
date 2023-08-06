@@ -8,7 +8,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.carstz.data.MainDB
-import com.example.carstz.data.entity.Item
+import com.example.carstz.data.entity.Car
 import com.example.carstz.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -24,22 +24,24 @@ class MainActivity : AppCompatActivity() {
 
         editLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-            if(it.resultCode == RESULT_OK){
-                adapter.addCar(it.data?.getSerializableExtra("car") as Item)
+                if(it.resultCode == RESULT_OK){
+                adapter.addCar(it.data?.getSerializableExtra("car") as Car)
             }
         }
-    }
 
+        //второй лаунчер для проверки есть ли данные
+    }
     private fun init() = with(binding){
         rcView.layoutManager = GridLayoutManager(this@MainActivity, 3)
         adapter = CarAdapter()
         rcView.adapter = adapter
 
+
         val db = MainDB.getDB(this@MainActivity)
         db.getDao().getAllItems().asLiveData().observe(this@MainActivity){ it ->
 
             it.forEach{
-                adapter.addCar(car = Item
+                adapter.addCar(car = Car
                     (
                     id = it.id,
                     brand = it.brand,
@@ -52,8 +54,18 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        adapter.onItemClick = {
+            editLauncher?.launch(Intent(this@MainActivity, EditActivity::class.java))
+            adapter.notifyDataSetChanged()
+        }
+
         buttonAdd.setOnClickListener {
             editLauncher?.launch(Intent(this@MainActivity, EditActivity::class.java))
+
+        }
+
+        buttonFilter.setOnClickListener{
+
         }
     }
 }

@@ -3,8 +3,9 @@ package com.example.carstz
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import com.example.carstz.data.MainDB
-import com.example.carstz.data.entity.Item
+import com.example.carstz.data.entity.Car
 import com.example.carstz.databinding.ActivityEditBinding
 
 class EditActivity : AppCompatActivity() {
@@ -41,9 +42,9 @@ class EditActivity : AppCompatActivity() {
         }
         bDone.setOnClickListener{
             val db = MainDB.getDB(this@EditActivity)
-            val item = Item(null,
-                edTitle.text.toString(),
-                edDesc.text.toString(),
+            val car = Car(null,
+                edBrand.text.toString(),
+                edModel.text.toString(),
                 edEngine.text.toString(),
                 edTrans.text.toString(),
                 edPrice.text.toString(),
@@ -51,10 +52,10 @@ class EditActivity : AppCompatActivity() {
             )
 
             Thread{
-                db.getDao().insertItem(item)
+                db.getDao().insertItem(car)
             }.start()
             val editIntent = Intent().apply{
-                putExtra("car", item)
+                putExtra("car", car)
             }
             setResult(RESULT_OK, editIntent)
             finish()

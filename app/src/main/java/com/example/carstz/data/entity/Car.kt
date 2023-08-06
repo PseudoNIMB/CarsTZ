@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import java.io.Serializable
 
 @Entity (tableName = "car.db")
-data class Item(
+data class Car(
     @PrimaryKey(autoGenerate = true) val id: Int? = null,
     @ColumnInfo(name = "brand") val brand: String,
     @ColumnInfo(name = "model") val model: String,

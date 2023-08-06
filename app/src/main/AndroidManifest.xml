@@ -13,6 +13,9 @@
         android:theme="@style/Theme.CarsTZ"
         tools:targetApi="33">
         <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditActivity"
             android:exported="false" />
         <activity
