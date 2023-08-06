@@ -1,4 +1,4 @@
-package com.example.carstz
+package com.example.carstz.data
 
 import java.io.Serializable
 

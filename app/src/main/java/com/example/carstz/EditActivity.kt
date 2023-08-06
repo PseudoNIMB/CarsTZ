@@ -3,6 +3,9 @@ package com.example.carstz
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.carstz.data.Car
+import com.example.carstz.data.MainDB
+import com.example.carstz.data.entity.Item
 import com.example.carstz.databinding.ActivityEditBinding
 
 class EditActivity : AppCompatActivity() {

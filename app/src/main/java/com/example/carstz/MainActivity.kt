@@ -7,9 +7,9 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.room.Room
+import com.example.carstz.data.Car
+import com.example.carstz.data.MainDB
 import com.example.carstz.databinding.ActivityMainBinding
-import kotlinx.coroutines.flow.Flow
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         init()
 
         editLauncher =
@@ -37,10 +36,9 @@ class MainActivity : AppCompatActivity() {
 
         val db = MainDB.getDB(this@MainActivity)
         db.getDao().getAllItems().asLiveData().observe(this@MainActivity){list ->
-            list.forEach{
+            list.forEach{ _ ->
                 adapter
             }
-
         }
 
         buttonAdd.setOnClickListener {
