@@ -29,12 +29,10 @@ class EditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         initButtons()
-
     }
 
-    fun initButtons() = with(binding){
+    private fun initButtons() = with(binding){
         bNext.setOnClickListener{
             indexImage++
             if(indexImage > imageIdList.size - 1) indexImage = 0

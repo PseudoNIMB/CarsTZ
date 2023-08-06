@@ -11,20 +11,15 @@ class CarAdapter : RecyclerView.Adapter<CarAdapter.CarHolder>() {
     val carList = ArrayList<Item>()
     class CarHolder(item: View) : RecyclerView.ViewHolder(item) {
         val binding = CarItemBinding.bind(item)
-
         fun bind(car: Item) = with(binding){
-
-
             im.setImageResource(car.imageId)
             tvTitle.text = car.brand + " " + car.model + " " + car.engine + " " + car.transmission + " " + car.price
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarHolder {
-
         val view = LayoutInflater.from(parent.context).
         inflate(R.layout.car_item, parent, false)
-
         return CarHolder(view)
     }
 

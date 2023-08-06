@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         adapter = CarAdapter()
         rcView.adapter = adapter
 
-
         val db = MainDB.getDB(this@MainActivity)
         db.getDao().getAllItems().asLiveData().observe(this@MainActivity){ it ->
 
@@ -49,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                     transmission = it.transmission,
                     price = it.price,
                     imageId = it.imageId))
-                adapter
+                adapter.notifyDataSetChanged()
             }
         }
 
