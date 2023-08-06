@@ -9,7 +9,7 @@ import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.carstz.data.MainDB
 import com.example.carstz.data.entity.Car
-import com.example.carstz.databinding.ActivityMainBinding
+import ru.pseudonimb.carstz.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

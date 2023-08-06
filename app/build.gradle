@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.carstz'
+    namespace 'ru.pseudonimb.carstz'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.carstz"
+        applicationId 'ru.pseudonimb.carstz'
         minSdk 24
         targetSdk 33
         versionCode 1

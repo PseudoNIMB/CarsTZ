@@ -3,7 +3,6 @@ package com.example.carstz.data.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Update
 import com.example.carstz.data.entity.Car
 import kotlinx.coroutines.flow.Flow
 

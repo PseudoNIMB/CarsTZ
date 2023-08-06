@@ -3,10 +3,10 @@ package com.example.carstz
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import com.example.carstz.data.MainDB
 import com.example.carstz.data.entity.Car
-import com.example.carstz.databinding.ActivityEditBinding
+import ru.pseudonimb.carstz.R
+import ru.pseudonimb.carstz.databinding.ActivityEditBinding
 
 class EditActivity : AppCompatActivity() {
     lateinit var binding: ActivityEditBinding

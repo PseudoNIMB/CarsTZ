@@ -5,7 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carstz.data.entity.Car
-import com.example.carstz.databinding.CarItemBinding
+import ru.pseudonimb.carstz.R
+import ru.pseudonimb.carstz.databinding.CarItemBinding
 
 class CarAdapter : RecyclerView.Adapter<CarAdapter.CarHolder>() {
     val carList = ArrayList<Car>()
