@@ -3,7 +3,6 @@ package com.example.carstz
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.carstz.data.Car
 import com.example.carstz.data.MainDB
 import com.example.carstz.data.entity.Item
 import com.example.carstz.databinding.ActivityEditBinding
@@ -51,7 +50,7 @@ class EditActivity : AppCompatActivity() {
                 edTrans.text.toString(),
                 edPrice.text.toString()
             )
-            val car = Car(imageId,
+            val car = Item(imageId,
                 edTitle.text.toString(),
                 edDesc.text.toString(),
                 edEngine.text.toString(),

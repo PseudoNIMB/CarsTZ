@@ -4,18 +4,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.carstz.data.Car
+import com.example.carstz.data.entity.Item
 import com.example.carstz.databinding.CarItemBinding
 
 class CarAdapter : RecyclerView.Adapter<CarAdapter.CarHolder>() {
-    val carList = ArrayList<Car>()
+    val carList = ArrayList<Item>()
     class CarHolder(item: View) : RecyclerView.ViewHolder(item) {
         val binding = CarItemBinding.bind(item)
 
-        fun bind(car: Car) = with(binding){
+        fun bind(car: Item) = with(binding){
 
-            im.setImageResource(car.imageId)
-            tvTitle.text = car.title + " " + car.desc + " " + car.engine + " " + car.trans + " " + car.price
+            //im.setImageResource(imageId)
+            tvTitle.text = car.brand + " " + car.model + " " + car.engine + " " + car.transmission + " " + car.price
         }
     }
 
@@ -33,9 +33,10 @@ class CarAdapter : RecyclerView.Adapter<CarAdapter.CarHolder>() {
 
     override fun onBindViewHolder(holder: CarHolder, position: Int) {
         holder.bind(carList[position])
+
     }
 
-    fun addCar(car: Car){
+    fun addCar(car: Item){
         carList.add(car)
         notifyDataSetChanged()
     }

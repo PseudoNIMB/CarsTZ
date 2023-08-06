@@ -3,6 +3,8 @@ package com.example.carstz.data.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
+
 
 @Entity (tableName = "car.db")
 data class Item (
@@ -12,4 +14,4 @@ data class Item (
     @ColumnInfo(name = "engine")    var engine: String,
     @ColumnInfo(name = "transmission")    var transmission: String,
     @ColumnInfo(name = "price")    var price: String
-)
+) : Serializable
