@@ -22,7 +22,7 @@
         android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AddCar"
+        android:text="@string/addcar"
         app:layout_constraintBottom_toBottomOf="@+id/rc_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

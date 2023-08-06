@@ -8,4 +8,5 @@
     <string name="engine">Engine</string>
     <string name="transmission">Transmission</string>
     <string name="price">Price</string>
+    <string name="addcar">AddCar</string>
 </resources>

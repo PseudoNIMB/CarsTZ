@@ -29,6 +29,7 @@ class EditActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initButtons()
+
     }
 
     fun initButtons() = with(binding){

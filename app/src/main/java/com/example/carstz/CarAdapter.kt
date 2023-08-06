@@ -1,6 +1,5 @@
 package com.example.carstz
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.carstz.databinding.CarItemBinding
 
 class CarAdapter : RecyclerView.Adapter<CarAdapter.CarHolder>() {
-    val applicationContext: Context
-        get() {
-            TODO()
-        }
     val carList = ArrayList<Car>()
     class CarHolder(item: View) : RecyclerView.ViewHolder(item) {
         val binding = CarItemBinding.bind(item)
